@@ -12,10 +12,11 @@ def extraer_information(pdf_ubicacion):
     Resumen = f""" Archivo {pdf_ubicacion}:     Paginas: {numero_de_paginas} """
 
     print(Resumen)
-    return informacion
+    return informacion, numero_de_paginas
 
 
 if __name__ == '__main__':
+    total_de_paginas = 0
     parser = argparse.ArgumentParser()
     parser.add_argument("-e", "--ejemplo",
                         help="Muestra un ejemplo", action="store_true")
@@ -45,4 +46,9 @@ if __name__ == '__main__':
                 pdfs.append(fichero)
 
         for ARCHIVO in pdfs:  # Recorremos la lista de Archivos PDF y sacamos las hojas
-            extraer_information(directorio_def+ARCHIVO)
+            datosgenerales, paginas_parcial = extraer_information(
+                directorio_def+ARCHIVO)
+            total_de_paginas = total_de_paginas + int(paginas_parcial)
+
+    if total_de_paginas > 0:
+        print(' El total de paginas en esta carpeta es de: ', total_de_paginas)

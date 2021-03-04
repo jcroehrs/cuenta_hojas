@@ -1,0 +1,4 @@
+/tmp/GuideToApacheAirflow.pdffrom p import pdfinfo
+
+i = pdfinfo("/tmp/GuideToApacheAirflow.pdf")
+print(i)

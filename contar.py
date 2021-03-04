@@ -21,7 +21,7 @@ if __name__ == '__main__':
                         help="Muestra un ejemplo", action="store_true")
     parser.add_argument("-f", "--fila", help="Nombre de archivo a procesar")
     parser.add_argument(
-        "-d", "--directorio", help="Busca todos los archivos PDF del directorio actual")
+        "-d", "--directorio", help="Busca todos los archivos PDF del directorio actual o en otro directorio")
     args = parser.parse_args()
 
     # Aquí procesamos lo que se tiene que hacer con cada argumento
